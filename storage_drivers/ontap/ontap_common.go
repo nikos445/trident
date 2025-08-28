@@ -452,6 +452,7 @@ func ensureNodeAccessForPolicy(
 
 		// Rule does not exist, so create it
 		if !ruleFound {
+			// Create Export Rule
 			if err = clientAPI.ExportRuleCreate(ctx, policyName, desiredRule, config.NASType); err != nil {
 				// Check if error is that the export policy rule already exist error
 				if errors.IsAlreadyExistsError(err) {
@@ -604,6 +605,7 @@ func reconcileExportPolicyRules(
 		}
 		deleted++
 	}
+
 	return nil
 }
 
