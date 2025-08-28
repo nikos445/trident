@@ -40,14 +40,7 @@ BUILD_CLI ?= docker
 
 # GO_SHELL sets the Go environment. By default uses DOCKER_CLI to create a container using GO_IMAGE. Set to empty string
 # to use local shell
-GO_SHELL ?= $(DOCKER_CLI) run \
-	-e XDG_CACHE_HOME=/go/cache \
-	-v $(TRIDENT_VOLUME):/go \
-	-v $(ROOT):$(BUILD_ROOT) \
-	-w $(BUILD_ROOT) \
-	--rm \
-	$(GO_IMAGE) \
-	sh -c
+GO_SHELL ?= 
 
 # HELM_CMD sets the helm command. By default uses DOCKER_CLI to create a container using HELM_IMAGE. Set to 'helm' to
 # use local helm command
